@@ -1,0 +1,100 @@
+001 | Ruby          | 1562 | Box with rubies
+002 | GoldCoin      | 661  | Bag with gold coins
+003 | GoldJewelry   | 999  | Box with gold jewelry
+004 | SilverJewelry | 452  | Box with silver jewelry
+005 | SilverCoin    | 159  | Bag with silver coins
+006 | GoldCoin      | 663  | Bag with gold coins
+007 | SilverJewelry | 703  | Box with silver jewelry
+008 | GoldJewelry   | 943  | Box with gold jewelry
+009 | SilverJewelry | 762  | Box with silver jewelry
+010 | GoldCoin      | 433  | Bag with gold coins
+011 | GoldJewelry   | 837  | Box with gold jewelry
+012 | GoldCoin      | 306  | Bag with gold coins
+013 | Ruby          | 1710 | Box with rubies
+014 | Sapphire      | 1991 | Box with sapphire
+015 | GoldJewelry   | 788  | Box with gold jewelry
+016 | Sapphire      | 2165 | Box with sapphire
+017 | GoldCoin      | 418  | Bag with gold coins
+018 | SilverJewelry | 455  | Box with silver jewelry
+019 | SilverJewelry | 456  | Box with silver jewelry
+020 | GoldCoin      | 626  | Bag with gold coins
+021 | GoldJewelry   | 1180 | Box with gold jewelry
+022 | SilverJewelry | 400  | Box with silver jewelry
+023 | SilverJewelry | 404  | Box with silver jewelry
+024 | SilverCoin    | 460  | Bag with silver coins
+025 | GoldJewelry   | 852  | Box with gold jewelry
+026 | Ruby          | 1991 | Box with rubies
+027 | Sapphire      | 2035 | Box with sapphire
+028 | Sapphire      | 2029 | Box with sapphire
+029 | Sapphire      | 1963 | Box with sapphire
+030 | Sapphire      | 1964 | Box with sapphire
+031 | GoldCoin      | 551  | Bag with gold coins
+032 | GoldCoin      | 612  | Bag with gold coins
+033 | Diamond       | 1323 | Box with diamonds
+034 | SilverJewelry | 516  | Box with silver jewelry
+035 | SilverCoin    | 595  | Bag with silver coins
+036 | SilverJewelry | 720  | Box with silver jewelry
+037 | Diamond       | 1246 | Box with diamonds
+038 | Diamond       | 1428 | Box with diamonds
+039 | GoldJewelry   | 876  | Box with gold jewelry
+040 | Ruby          | 1628 | Box with rubies
+041 | Diamond       | 1092 | Box with diamonds
+042 | Ruby          | 1746 | Box with rubies
+043 | SilverCoin    | 526  | Bag with silver coins
+044 | Diamond       | 1270 | Box with diamonds
+045 | Diamond       | 1296 | Box with diamonds
+046 | GoldCoin      | 576  | Bag with gold coins
+047 | SilverCoin    | 334  | Bag with silver coins
+048 | Diamond       | 1157 | Box with diamonds
+049 | Ruby          | 1645 | Box with rubies
+050 | GoldCoin      | 474  | Bag with gold coins
+051 | GoldCoin      | 476  | Bag with gold coins
+052 | Sapphire      | 2114 | Box with sapphire
+053 | Sapphire      | 2121 | Box with sapphire
+054 | GoldCoin      | 344  | Bag with gold coins
+055 | Sapphire      | 1916 | Box with sapphire
+056 | Ruby          | 1966 | Box with rubies
+057 | SilverJewelry | 509  | Box with silver jewelry
+058 | SilverJewelry | 760  | Box with silver jewelry
+059 | GoldJewelry   | 1149 | Box with gold jewelry
+060 | SilverJewelry | 303  | Box with silver jewelry
+061 | Sapphire      | 1756 | Box with sapphire
+062 | SilverCoin    | 197  | Bag with silver coins
+063 | Diamond       | 1226 | Box with diamonds
+064 | Sapphire      | 2001 | Box with sapphire
+065 | SilverJewelry | 516  | Box with silver jewelry
+066 | SilverJewelry | 518  | Box with silver jewelry
+067 | Ruby          | 1763 | Box with rubies
+068 | SilverCoin    | 488  | Bag with silver coins
+069 | Diamond       | 1418 | Box with diamonds
+070 | GoldJewelry   | 949  | Box with gold jewelry
+071 | GoldCoin      | 239  | Bag with gold coins
+072 | GoldCoin      | 385  | Bag with gold coins
+073 | Sapphire      | 1860 | Box with sapphire
+074 | GoldCoin      | 566  | Bag with gold coins
+075 | SilverJewelry | 420  | Box with silver jewelry
+076 | GoldJewelry   | 1051 | Box with gold jewelry
+077 | GoldJewelry   | 884  | Box with gold jewelry
+078 | SilverJewelry | 345  | Box with silver jewelry
+079 | Sapphire      | 2188 | Box with sapphire
+080 | SilverJewelry | 515  | Box with silver jewelry
+081 | SilverJewelry | 711  | Box with silver jewelry
+082 | Ruby          | 1870 | Box with rubies
+083 | GoldCoin      | 631  | Bag with gold coins
+084 | SilverJewelry | 575  | Box with silver jewelry
+085 | GoldJewelry   | 939  | Box with gold jewelry
+086 | GoldCoin      | 586  | Bag with gold coins
+087 | GoldCoin      | 445  | Bag with gold coins
+088 | Ruby          | 1897 | Box with rubies
+089 | Sapphire      | 1916 | Box with sapphire
+090 | SilverJewelry | 752  | Box with silver jewelry
+091 | Diamond       | 1054 | Box with diamonds
+092 | SilverJewelry | 754  | Box with silver jewelry
+093 | GoldJewelry   | 954  | Box with gold jewelry
+094 | Sapphire      | 1827 | Box with sapphire
+095 | Sapphire      | 1930 | Box with sapphire
+096 | GoldJewelry   | 966  | Box with gold jewelry
+097 | GoldCoin      | 352  | Bag with gold coins
+098 | GoldCoin      | 491  | Bag with gold coins
+099 | Sapphire      | 2193 | Box with sapphire
+100 | GoldCoin      | 544  | Bag with gold coins
