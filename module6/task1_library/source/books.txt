@@ -1,0 +1,9 @@
+001 | No story                  | O.Henry                   | 1905 | PrintedBook | true
+002 | High stand                | Innes Hammond             | 1985 | EBook       | false
+003 | The Catcher in the Rye    | Salinger J. D.            | 1951 | PrintedBook | true
+004 | To Kill a Mockingbird     | Harper Lee Nelle          | 1960 | PrintedBook | true
+005 | Of Mice and Men           | Steinbeck John Ernst      | 2018 | EBook       | false
+006 | The Great Gatsby          | Francis Fitzgerald        | 2020 | EBook       | true
+007 | The Cop and the Anthem    | O.Henry                   | 1906 | PrintedBook | false
+008 | The Gift of the Magi      | O.Henry                   | 1906 | PrintedBook | true
+009 | The Trimmed Lamp          | O.Henry                   | 1906 | PrintedBook | true
