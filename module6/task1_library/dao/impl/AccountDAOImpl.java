@@ -18,19 +18,26 @@ import by.epam_training.java_online.module6.task1_library.dao.DaoProvider;
 public class AccountDAOImpl implements AccountDAO {
 
 	private static final String ACCOUNTFILE_LOCATION = "accounts.txt";
-	private static final File ACCOUNT_SOURCE = new File(UserDAOImpl.getLIBRARY_LOCATION() + ACCOUNTFILE_LOCATION);
+	private static File ACCOUNT_SOURCE = new File(UserDAOImpl.getLIBRARY_LOCATION() + ACCOUNTFILE_LOCATION);
 
-	public boolean checkIfAccountFileExists() {
+	public boolean checkIfAccountFileExists() throws DAOException {
 
 		if (!ACCOUNT_SOURCE.exists()) {
-			new File(UserDAOImpl.getLIBRARY_LOCATION() + ACCOUNTFILE_LOCATION);
+			ACCOUNT_SOURCE = new File(UserDAOImpl.getLIBRARY_LOCATION() + ACCOUNTFILE_LOCATION);
+
+			try {
+				ACCOUNT_SOURCE.createNewFile();
+			} catch (IOException e) {
+				throw new DAOException(e);
+			}
+
 			return false;
 		}
 
 		return true;
 	}
 
-	public void lendBook(int userID, int bookID) throws DAOException  {
+	public void lendBook(int userID, int bookID) throws DAOException {
 
 		BookDAOImpl bookDAOImpl = DaoProvider.getInstance().getBookDaoImpl();
 		List<Book> books = bookDAOImpl.getBooksFromFile();
@@ -47,7 +54,6 @@ public class AccountDAOImpl implements AccountDAO {
 				lendedBook = b;
 				break;
 			} else if (!b.isAvailable()) {
-				// System.out.println("The book is unavailable");
 			}
 		}
 

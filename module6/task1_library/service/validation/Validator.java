@@ -8,7 +8,7 @@ public class Validator {
 // в наш просвещенный век может включать любые символы в любом порядке.
 
 	public static boolean validateName(String name) {
-		return name.matches("^[a-zA-Z\\s]*$");
+		return name.matches("^[a-zA-Z\\s\\.\\']*$"); //буквы латинского алфавита, пробелы, точки, апострофы
 	}
 
 	public static boolean validateYear(String year) {
@@ -23,7 +23,7 @@ public class Validator {
 	}
 
 	public static boolean validatePassword(String password) {
-		return password.matches("\\w+");
+		return password.matches("\\w+"); // буквенно-цифровой символ или знак подчёркивания
 	}
 
 	public static boolean validateEmail(String email) {

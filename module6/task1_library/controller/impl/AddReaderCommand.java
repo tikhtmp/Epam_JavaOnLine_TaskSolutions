@@ -1,8 +1,5 @@
 package by.epam_training.java_online.module6.task1_library.controller.impl;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import by.epam_training.java_online.module6.task1_library.controller.Command;
 import by.epam_training.java_online.module6.task1_library.service.ServiceException;
 import by.epam_training.java_online.module6.task1_library.service.ServiceProvider;
@@ -11,8 +8,6 @@ import by.epam_training.java_online.module6.task1_library.service.validation.Val
 
 public class AddReaderCommand implements Command{
 	
-	private static Logger LOG;
-
 	@Override
 	public String execute(String[] params) {
 
@@ -50,11 +45,11 @@ public class AddReaderCommand implements Command{
 		try {
 			userService.addUser(userType, name, login, password, email, prefferedUserID);
 		} catch (ServiceException e) {
-			LOG.log(Level.WARNING, "Error adding an user!");
-			return "Error adding the user!";
+			// логирование
+			return "Error accessing the user file! The user wasn't added!";
 		}
 
-		return "The reader was successfully added.";
+		return "The reader was successfully added.\n";
 	}
 
 }

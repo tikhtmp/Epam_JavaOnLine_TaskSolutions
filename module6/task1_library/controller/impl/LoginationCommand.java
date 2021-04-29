@@ -1,8 +1,5 @@
 package by.epam_training.java_online.module6.task1_library.controller.impl;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import by.epam_training.java_online.module6.task1_library.bean.RegistrationInfo;
 import by.epam_training.java_online.module6.task1_library.bean.User;
 import by.epam_training.java_online.module6.task1_library.controller.Command;
@@ -12,8 +9,6 @@ import by.epam_training.java_online.module6.task1_library.service.impl.UserServi
 import by.epam_training.java_online.module6.task1_library.service.validation.Validator;
 
 public class LoginationCommand implements Command {
-	
-	private static Logger LOG;
 
 	@Override
 	public String execute(String[] params) {
@@ -35,12 +30,12 @@ public class LoginationCommand implements Command {
 		String response;
 		User user = null;
 
-			try {
-				user = userService.logination(registrationInfo);
-			} catch (ServiceException e) {
-				LOG.log(Level.WARNING,"Error!");				
-				return "Error accessing the file!";
-			}
+		try {
+			user = userService.logination(registrationInfo);
+		} catch (ServiceException e) {
+			// логирование
+			return "Error accessing the user file!";
+		}
 
 		if (user != null) {
 			response = "Hello, " + user.getName() + "! =" + user.getClass().getSimpleName();

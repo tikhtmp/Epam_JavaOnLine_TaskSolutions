@@ -10,8 +10,12 @@ public class AccountServiceImpl implements AccountService {
 
 	AccountDAOImpl accountDAOImpl = DaoProvider.getInstance().getAccountDAOImpl();
 
-	public boolean checkIfAccountFileExists() {
-		return accountDAOImpl.checkIfAccountFileExists();
+	public boolean checkIfAccountFileExists() throws ServiceException {
+		try {
+			return accountDAOImpl.checkIfAccountFileExists();
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
 	}
 
 	@Override

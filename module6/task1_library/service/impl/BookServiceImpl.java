@@ -14,8 +14,12 @@ public class BookServiceImpl implements BookService {
 
 	BookDAOImpl bookDAOimpl = DaoProvider.getInstance().getBookDaoImpl();
 
-	public boolean checkIfBookFileExists() {
-		return bookDAOimpl.checkIfBookFileExists();
+	public boolean checkIfBookFileExists() throws ServiceException {
+		try {
+			return bookDAOimpl.checkIfBookFileExists();
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
 	}
 
 	@Override

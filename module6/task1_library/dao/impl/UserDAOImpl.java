@@ -21,16 +21,23 @@ public class UserDAOImpl implements UserDAO {
 
 	private static String LIBRARY_LOCATION = "C:/HomeLibrary/";
 	private static final String USERFILE_LOCATION = "users.txt";
-	private static final File USER_SOURCE = new File(LIBRARY_LOCATION + USERFILE_LOCATION);
+	private static File USER_SOURCE = new File(LIBRARY_LOCATION + USERFILE_LOCATION);
 
 	public static String getLIBRARY_LOCATION() {
 		return LIBRARY_LOCATION;
 	}
 
-	public boolean checkIfUserFileExists() {
+	public boolean checkIfUserFileExists() throws DAOException {
 
 		if (!USER_SOURCE.exists()) {
-			new File(LIBRARY_LOCATION + USERFILE_LOCATION);
+			USER_SOURCE = new File(LIBRARY_LOCATION + USERFILE_LOCATION);
+
+			try {
+				USER_SOURCE.createNewFile();
+			} catch (IOException e) {
+				throw new DAOException(e);
+			}
+
 			return false;
 		}
 
@@ -161,7 +168,7 @@ public class UserDAOImpl implements UserDAO {
 				break;
 			}
 		}
-		
+
 		saveUserDataFile(users);
 	}
 

@@ -1,7 +1,5 @@
 package by.epam_training.java_online.module6.task1_library.view;
 
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -13,7 +11,7 @@ public class LibraryView {
 	private static Scanner scanner = new Scanner(System.in);
 	private int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
-	public void startApp() throws NumberFormatException, IOException, NoSuchAlgorithmException, InterruptedException {
+	public void startApp() {
 
 		int choice = -1;
 		String request;
@@ -30,9 +28,14 @@ public class LibraryView {
 		do {
 
 			do {
-				// request = askLoginInfo();
-				request = "logination*login=u2login| password=u2pw";
+				System.out.println("Please, log in to start working.");
+				request = askLoginInfo();
 				response = controller.doAction(request);
+
+				if (response.contains("Error")) {
+					System.out.println(response);
+					break;
+				}
 
 				if (response.contains("Incorrect")) {
 					System.out.println(response);
@@ -45,6 +48,11 @@ public class LibraryView {
 			if (choice == -1) {
 				System.out.println("Logination error! Please, try log in again.");
 			} else {
+
+				if (response.contains("Error")) {
+					break;
+				}
+
 				System.out.println(response.split("=")[0]);
 				isAdmin = response.split("=")[1].equals("Admin");
 
@@ -58,10 +66,10 @@ public class LibraryView {
 		} while (choice != 0);
 
 		scanner.close();
-		System.out.println("The session is over.");
+		System.out.println("\nThe session is over.");
 	}
 
-	public void adminMenu() throws NumberFormatException, NoSuchAlgorithmException, IOException {
+	public void adminMenu() {
 		int choice = -1;
 		String response;
 		String newBook;
@@ -100,11 +108,23 @@ public class LibraryView {
 
 				} while (response.contains("Incorrect"));
 
+				if (response.contains("Error")) {
+					break;
+				}
+
 				announceBookByEmail("Reader", newBook);
 			}
 
-			if (choice == 4) // удалить книгу из каталога
-				controller.doAction("removeBook*" + askRemovingBook());
+			if (choice == 4) { // удалить книгу из каталога
+				response = controller.doAction("removeBook*" + askRemovingBook());
+
+				System.out.println(response);
+
+				if (response.contains("Error")) {
+					break;
+				}
+
+			}
 
 			if (choice == 5) { // редактировать книгу из каталога
 				System.out.println("Please, input editing book's id: ");
@@ -120,6 +140,11 @@ public class LibraryView {
 					newReader = askNewUserInfo("Reader");
 					response = controller.doAction("addUser*" + newReader);
 
+					if (response.contains("Error")) {
+						System.out.println(response);
+						break;
+					}
+
 					if (response.contains("Incorrect")) {
 						System.out.println(response + "\nTry again...");
 					} else {
@@ -131,7 +156,13 @@ public class LibraryView {
 			}
 
 			if (choice == 7) { // удалить читателя
-				controller.doAction("removeUser*" + askRemovingUser());
+				response = controller.doAction("removeUser*" + askRemovingUser());
+
+				System.out.println(response);
+
+				if (response.contains("Error")) {
+					break;
+				}
 			}
 
 			if (choice == 8) { // выдать книгу читателю
@@ -141,19 +172,29 @@ public class LibraryView {
 				System.out.println("Please, input reader's id: ");
 				int userID = getIntDataFromKeybord();
 
-				controller.doAction("lendBook*bookID=" + bookID + "|userID=" + userID);
+				response = controller.doAction("lendBook*bookID=" + bookID + "|userID=" + userID);
+				System.out.println(response);
+
+				if (response.contains("Error")) {
+					break;
+				}
 			}
 
 			if (choice == 9) { // вернуть книгу в библиотеку
 				System.out.println("Please, input returning book's id: ");
 				int bookID = getIntDataFromKeybord();
-				controller.doAction("takeBookBack*bookID=" + bookID);
+				response = controller.doAction("takeBookBack*bookID=" + bookID);
+				System.out.println(response);
+
+				if (response.contains("Error")) {
+					break;
+				}
 			}
 
 		} while (choice != 0);
 	}
 
-	public void userMenu() throws NumberFormatException, NoSuchAlgorithmException, IOException {
+	public void userMenu() {
 		int choice = -1;
 
 		do {
@@ -181,26 +222,34 @@ public class LibraryView {
 		} while (choice != 0);
 	}
 
-	public void displayBooks() throws NumberFormatException, NoSuchAlgorithmException, IOException {
-		String[] books = controller.doAction("viewBooks*").split("\n");
+	public void displayBooks() {
 
-		for (int i = 0; i < books.length; i++) {
+		String response = controller.doAction("viewBooks*");
 
-			System.out.println(books[i]);
-			
-			// "постраничный" просмотр книг - по 3 штуки за раз
-			if ((i + 1) % 3 == 0) {
-				System.out.println("\nPress ENTER to continue watching the list of books...");
-				getStringDataFromKeybord();
+		if (!response.contains("Error")) {
+
+			String[] books = response.split("\n");
+
+			for (int i = 0; i < books.length; i++) {
+
+				System.out.println(books[i]);
+
+				// "постраничный" просмотр книг - по 3 штуки на "странице"
+				if ((i + 1) % 3 == 0) {
+					System.out.println("\nPress ENTER to continue watching the list of books...");
+					getStringDataFromKeybord();
+				}
 			}
+			System.out.println("That's all at the moment\n");
+		} else {
+			System.out.println(response);
 		}
 
-		System.out.println("\nThat's all at the moment\n");
 	}
 
 	// поиск книг по параметрам
-	public void searchBook() throws NumberFormatException, NoSuchAlgorithmException, IOException {
-		
+	public void searchBook() {
+
 		StringBuilder searchData = new StringBuilder();
 		searchData.append("searchBooks*");
 		System.out.print("Please, set search parametres (press ENTER to skip item):\nauthor: ");
@@ -241,11 +290,9 @@ public class LibraryView {
 		System.out.println(controller.doAction(searchData.toString()));
 	}
 
-	public void announceBookByEmail(String recipient, String newBook)
-			throws NumberFormatException, NoSuchAlgorithmException, IOException {
+	public void announceBookByEmail(String recipient, String newBook) {
 
 		System.out.print("Please, input your gmail account's login: ");
-		//getStringDataFromKeybord(); // это нужно чтобы подчистить ENTER
 		String gMailLogin = getStringDataFromKeybord();
 		System.out.print("Password: "); // можно было бы сохранять пароль от почты в файле и не вводить его и логин
 										// вручную, но для библиотечной БД это слишком
@@ -310,7 +357,7 @@ public class LibraryView {
 		return registrationData.toString();
 	}
 
-	public void editBook(int id) throws NumberFormatException, NoSuchAlgorithmException, IOException {
+	public void editBook(int id) {
 
 		String response;
 

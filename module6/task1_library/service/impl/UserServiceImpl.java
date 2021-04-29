@@ -29,10 +29,6 @@ public class UserServiceImpl implements UserService {
 
 	UserDAOImpl userDAOimpl = DaoProvider.getInstance().getUserDAOImpl();
 
-//	public void proposeBook(String recipient, String content, String gMailLogin, String password) {
-//		sendEmail(gMailLogin, password, recipient, content);
-//	}
-
 	public void proposeBook(String gMailLogin, String emailPassword, String recipient, String content)
 			throws ServiceException {
 
@@ -131,8 +127,12 @@ public class UserServiceImpl implements UserService {
 		return userDAOimpl.checkIfLibraryExists();
 	}
 
-	public boolean checkIfUserFileExists() {
-		return userDAOimpl.checkIfUserFileExists();
+	public boolean checkIfUserFileExists() throws ServiceException {
+		try {
+			return userDAOimpl.checkIfUserFileExists();
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
 	}
 
 	public boolean checkIfUserFileHasAdmin() throws ServiceException {

@@ -1,8 +1,5 @@
 package by.epam_training.java_online.module6.task1_library.controller.impl;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import by.epam_training.java_online.module6.task1_library.controller.Command;
 import by.epam_training.java_online.module6.task1_library.service.ServiceException;
 import by.epam_training.java_online.module6.task1_library.service.ServiceProvider;
@@ -11,12 +8,11 @@ import by.epam_training.java_online.module6.task1_library.service.impl.BookServi
 import by.epam_training.java_online.module6.task1_library.service.impl.UserServiceImpl;
 
 public class StartApplicationCommand implements Command {
-	
-	private static Logger LOG;
 
 	@Override
 	public String execute(String[] params) {
-		String response = null;
+
+		String response;
 
 		ServiceProvider provider = ServiceProvider.getInstance();
 		UserServiceImpl userService = provider.getUserService();
@@ -24,19 +20,36 @@ public class StartApplicationCommand implements Command {
 		AccountServiceImpl accountService = provider.getAccountService();
 
 		userService.checkIfLibraryExists();
-		userService.checkIfUserFileExists();
-		bookService.checkIfBookFileExists();
-		accountService.checkIfAccountFileExists();
+
+		try {
+			userService.checkIfUserFileExists();
+		} catch (ServiceException e) {
+			// логирование
+			response = "Error creating the user file!";
+		}
+
+		try {
+			bookService.checkIfBookFileExists();
+		} catch (ServiceException e1) {
+			// логирование
+			response = "Error creating the book file!";
+		}
+
+		try {
+			accountService.checkIfAccountFileExists();
+		} catch (ServiceException e1) {
+			// логирование
+			response = "Error creating the account file!";
+		}
 
 		try {
 			response = String.valueOf(userService.checkIfUserFileHasAdmin());
+
 		} catch (ServiceException e) {
-			LOG.log(Level.WARNING,"Error accessing the file!");				
-			return "Error accessing the file!";
+			// логирование
+			response = "Error accessing the user file!";
 		}
-		
 
 		return response;
 	}
-
 }

@@ -1,8 +1,5 @@
 package by.epam_training.java_online.module6.task1_library.controller.impl;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import by.epam_training.java_online.module6.task1_library.controller.Command;
 import by.epam_training.java_online.module6.task1_library.service.ServiceException;
 import by.epam_training.java_online.module6.task1_library.service.ServiceProvider;
@@ -10,7 +7,6 @@ import by.epam_training.java_online.module6.task1_library.service.impl.BookServi
 import by.epam_training.java_online.module6.task1_library.service.validation.Validator;
 
 public class AddBookCommand implements Command {
-	static Logger LOG;
 	
 	@Override
 	public String execute(String[] params) {
@@ -40,11 +36,11 @@ public class AddBookCommand implements Command {
 			try {
 				bookService.addBook(title, author, year, bookType, prefferedBookID);
 			} catch (ServiceException e) {
-				LOG.log(Level.WARNING,"Error accessing the file!");				
-				return "Error accessing the file! The book wasn't added!";
+				// логирование
+				return "Error accessing the book file! The book wasn't added!";
 			}
 
-			return "The book was successfully added";
+			return "The book was successfully added\n";
 	}
 
 }

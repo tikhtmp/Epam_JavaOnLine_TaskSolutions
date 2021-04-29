@@ -18,7 +18,7 @@ import by.epam_training.java_online.module6.task1_library.dao.DAOException;
 public class BookDAOImpl implements BookDAO {
 
 	private static final String BOOKFILE_LOCATION = "books.txt";
-	private static final File BOOK_SOURCE = new File(UserDAOImpl.getLIBRARY_LOCATION() + BOOKFILE_LOCATION);
+	private static File BOOK_SOURCE = new File(UserDAOImpl.getLIBRARY_LOCATION() + BOOKFILE_LOCATION);
 
 	public String getBooks(String criteria) throws DAOException {
 
@@ -76,10 +76,16 @@ public class BookDAOImpl implements BookDAO {
 		return result.toString();
 	}
 
-	public boolean checkIfBookFileExists() {
+	public boolean checkIfBookFileExists() throws DAOException {
 
 		if (!BOOK_SOURCE.exists()) {
-			new File(UserDAOImpl.getLIBRARY_LOCATION() + BOOKFILE_LOCATION);
+			
+			BOOK_SOURCE = new File(UserDAOImpl.getLIBRARY_LOCATION() + BOOKFILE_LOCATION);
+			try {
+				BOOK_SOURCE.createNewFile();
+			} catch (IOException e) {
+				throw new DAOException(e);
+			}
 			return false;
 		}
 
