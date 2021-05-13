@@ -1,0 +1,11 @@
+topic=BIRTHDAY | date=4-20-2021  | email=emailninth@gmail.com          | content=My pig birthday
+topic=BIRTHDAY | date=4-22-2021  | email=emailsixth@gmail              | content=My snake birthday
+topic=HOLIDAY  | date=14-7-2021  | email=emailfirst@mail.ru            | content=Bastille day
+topic=HOLIDAY  | date=5-1-2021   | email=anemail@gmail.com             | content=Labour day
+topic=INFO     | date=6-24-2021  | email=new@email.com                 | content=Bill day
+topic=EVENT    | date=5-20-2021  | email=e@mail.com                    | content=Appointed meeting
+topic=EVENT    | date=5-6-2021   | email=some@email.by                 | content=Moon eclipse
+topic=BIRTHDAY | date=11-7-2021  | email=mins@mda.org                  | content=My dog birthday
+topic=INFO     | date=6-1-2021   | email=new@email.by                  | content=Summer starting
+topic=EVENT    | date=5-31-2021  | email=some@email.by                 | content=Random
+topic=EVENT    | date=5-13-2021  | email=my@email.com                  | content=App ended.
