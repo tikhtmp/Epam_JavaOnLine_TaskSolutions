@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Archive>
+	<Student>
+		<Id>1</Id>
+		<Name>Student1</Name>
+	</Student>
+	<Student>
+		<Id>2</Id>
+		<Name>Student2</Name>
+	</Student>
+	<Student>
+		<Id>3</Id>
+		<Name>Student3</Name>
+	</Student>
+	<Student>
+		<Id>4</Id>
+		<Name>Student4</Name>
+	</Student>
+	<Student>
+		<Id>5</Id>
+		<Name>Student5</Name>
+	</Student>
+	<Student>
+		<Id>7</Id>
+		<Name>newStundent7</Name>
+	</Student>
+	<Student>
+		<Id>9</Id>
+		<Name>student9</Name>
+	</Student>
+	<Student>
+		<Id>88</Id>
+		<Name>editted Student88</Name>
+	</Student>
+</Archive>
